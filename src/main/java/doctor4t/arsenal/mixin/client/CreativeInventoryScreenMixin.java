@@ -29,7 +29,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 		super(screenHandler, playerInventory, text);
 	}
 
-	@WrapOperation(method = "setSelectedTab", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/collection/DefaultedList;add(Ljava/lang/Object;)Z", ordinal = 2))
+	@WrapOperation(method = "setSelectedTab", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/collection/DefaultedList;add(Ljava/lang/Object;)Z", ordinal = 2), require = 0)
 	private boolean arsenal$moveWeaponSlot(DefaultedList<Slot> slots, Object object, Operation<Boolean> operation) {
 		if (object instanceof CreativeInventoryScreen.CreativeSlot newSlot) {
 			Slot slot = ((CreativeSlotAccessor) newSlot).getSlot();
